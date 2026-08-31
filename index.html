@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pocket Room</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="logo-dot" aria-hidden="true"></span>
+          <h1>Pocket Room</h1>
+        </div>
+        <span class="chip">Device</span>
+      </header>
+
+      <main class="stage">
+        <canvas id="view" aria-label="Japanese room"></canvas>
+        <p class="speech pill" id="quote">Room hues</p>
+        <div class="stage-actions">
+          <button class="pill" id="remix" type="button">Remix</button>
+          <button class="pill" id="editColor" type="button">Edit Color</button>
+        </div>
+        <aside class="picker" id="picker" hidden>
+          <p class="picker-hint" id="pickHint">Click a part of the room</p>
+          <p class="picker-slot" id="pickSlot"></p>
+          <div class="picker-row">
+            <input id="pickHex" type="color" value="#cad100" />
+            <span id="pickHexLabel">#cad100</span>
+          </div>
+          <label class="slider">
+            R
+            <input id="pickR" type="range" min="0" max="255" value="202" />
+            <span id="pickRVal">202</span>
+          </label>
+          <label class="slider">
+            G
+            <input id="pickG" type="range" min="0" max="255" value="209" />
+            <span id="pickGVal">209</span>
+          </label>
+          <label class="slider">
+            B
+            <input id="pickB" type="range" min="0" max="255" value="0" />
+            <span id="pickBVal">0</span>
+          </label>
+        </aside>
+      </main>
+
+      <footer class="dock" id="dock">
+        <div class="actions">
+          <button id="reset" type="button">Reset</button>
+        </div>
+        <div class="palette-strip" id="themeDots" aria-label="Theme palettes"></div>
+        <section class="current">
+          <div class="current-head">
+            <h2 id="paletteName">Original Clay</h2>
+            <a
+              class="credit"
+              href="https://www.johnkala.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Created by John Kala</a>
+          </div>
+          <div class="swatches" id="swatches"></div>
+          <div class="copy-row">
+            <div class="format-toggle" role="group" aria-label="Copy format">
+              <button type="button" data-format="hex" aria-pressed="true">HEX</button>
+              <button type="button" data-format="css" aria-pressed="false">CSS</button>
+              <button type="button" data-format="json" aria-pressed="false">JSON</button>
+            </div>
+            <button id="copyPalette" type="button">Copy palette</button>
+          </div>
+        </section>
+      </footer>
+    </div>
+    <div class="toast pill" id="toast" role="status"></div>
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>
